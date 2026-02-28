@@ -103,5 +103,4 @@ CMD ["sh", "-c", "./authorizer" \
   --roblox-client-secret="$${ROBLOX_CLIENT_SECRET}" \
   --roblox-scopes="$${ROBLOX_SCOPES}" \
   --log-level="$${LOG_LEVEL:-info}" \
-  --http-port="$${PORT:-8080}"
-]
+  --http-port="$${PORT:-8080}"]
