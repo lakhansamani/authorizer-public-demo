@@ -2,7 +2,7 @@ FROM lakhansamani/authorizer:2.0.0-rc.1
 
 # v2 uses CLI arguments only. Railway injects env vars; shell form CMD expands them at runtime.
 # Use $$ to prevent Docker build-time expansion.
-CMD ./authorizer \
+CMD ["sh", "-c", "./authorizer" \
   --database-type="$${DATABASE_TYPE:-postgres}" \
   --database-url="$${DATABASE_URL}" \
   --client-id="$${CLIENT_ID}" \
@@ -104,3 +104,4 @@ CMD ./authorizer \
   --roblox-scopes="$${ROBLOX_SCOPES}" \
   --log-level="$${LOG_LEVEL:-info}" \
   --http-port="$${PORT:-8080}"
+]
