@@ -5,7 +5,7 @@ FROM lakhansamani/authorizer:2.0.1
 ENTRYPOINT ["/bin/sh", "-c"]
 # Single CMD string so the whole command is run by sh -c (not just "./authorizer").
 # Backslash-newline inside the string lets sh treat this as one command across lines.
-CMD ["./authorizer \\\n\
+CMD ["exec ./authorizer \\\n\
   --database-type=\"${DATABASE_TYPE:-postgres}\" \\\n\
   --database-url=\"${DATABASE_URL}\" \\\n\
   --client-id=\"${CLIENT_ID}\" \\\n\
@@ -37,9 +37,9 @@ CMD ["./authorizer \\\n\
   --host=\"${HOST:-0.0.0.0}\" \\\n\
   --metrics-port=\"${METRICS_PORT:-8081}\" \\\n\
   --enable-login-page=\"${ENABLE_LOGIN_PAGE:-true}\" \\\n\
-  --enable-playground=\"${ENABLE_PLAYGROUND:-true}\" \\\n\
-  --disable-admin-header-auth=\"${DISABLE_ADMIN_HEADER_AUTH:-true}\" \\\n\
-  --enable-graphql-introspection=\"${ENABLE_GRAPHQL_INTROSPECTION:-true}\" \\\n\
+  --enable-playground=\"${ENABLE_PLAYGROUND:-false}\" \\\n\
+  --disable-admin-header-auth=\"${DISABLE_ADMIN_HEADER_AUTH:-false}\" \\\n\
+  --enable-graphql-introspection=\"${ENABLE_GRAPHQL_INTROSPECTION:-false}\" \\\n\
   --app-cookie-secure=\"${APP_COOKIE_SECURE:-true}\" \\\n\
   --admin-cookie-secure=\"${ADMIN_COOKIE_SECURE:-true}\" \\\n\
   --database-name=\"${DATABASE_NAME}\" \\\n\
