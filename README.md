@@ -25,4 +25,4 @@ Deploy production ready [authorizer.dev](https://authorizer.dev) instance using 
 
 - You can update the [docker image](https://github.com/authorizerdev/authorizer-railway/blob/main/Dockerfile#L1) to the desired version in your repository which gets created with your deployment.
 
-- You can find all the versions on [github](https://github.com/authorizerdev/authorizer/releases) or [dockerhub](https://hub.docker.com/r/lakhansamani/authorizer)
+- You can find all the versions on [github](https://github.com/authorizerdev/authorizer/releases) or [Quay](https://quay.io/repository/authorizer/authorizer)
