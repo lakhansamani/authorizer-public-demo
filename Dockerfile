@@ -18,6 +18,7 @@ CMD ["exec ./authorizer \\\n\
   --redis-url=\"${REDIS_URL}\" \\\n\
   --jwt-type=\"${JWT_TYPE}\" \\\n\
   --jwt-secret=\"${JWT_SECRET}\" \\\n\
+  --encryption-key=\"${ENCRYPTION_KEY}\" \\\n\
   --jwt-private-key=\"${JWT_PRIVATE_KEY}\" \\\n\
   --jwt-public-key=\"${JWT_PUBLIC_KEY}\" \\\n\
   --jwt-role-claim=\"${JWT_ROLE_CLAIM}\" \\\n\
