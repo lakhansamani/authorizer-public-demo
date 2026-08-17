@@ -1,9 +1,12 @@
 # Base runs as USER authorizer (uid 1000). For SQLite, ensure mounted /data is writable by that user.
 # Pinned to the 2.4.0 release candidate because it is the first published
-# image with the current CLI flag surface (--url, --oauth2-1-strict,
-# --enable-org-discovery, --disable-totp-login/-webauthn-mfa/-email-otp/
-# -sms-otp/-mfa). Re-pin to the stable 2.4.0 tag once it ships.
-FROM quay.io/authorizer/authorizer:2.4.0-rc.18
+# image with the current CLI flag surface (--url, --mcp-enabled,
+# --enable-client-id-metadata-document, --enable-dynamic-client-registration,
+# --oauth2-1-strict, --enable-org-discovery, --disable-totp-login/-webauthn-mfa/
+# -email-otp/-sms-otp/-mfa). Re-pin to the stable 2.4.0 tag once it ships.
+# Every flag the server exposes is wired below; `--help` on this tag is the
+# source of truth, and a flag missing here is drift, not a deliberate omission.
+FROM quay.io/authorizer/authorizer:2.4.0-rc.23
 # Override so CMD runs in a shell and env vars (e.g. for Railway) are expanded. See base image comment.
 # Use exec-form CMD with a single string so /bin/sh -c gets one argument; shell-form CMD can be split and drop into a shell.
 ENTRYPOINT ["/bin/sh", "-c"]
@@ -54,6 +57,10 @@ CMD ["exec ./authorizer \\\n\
   --grpc-insecure=\"${GRPC_INSECURE:-true}\" \\\n\
   --grpc-tls-cert=\"${GRPC_TLS_CERT}\" \\\n\
   --grpc-tls-key=\"${GRPC_TLS_KEY}\" \\\n\
+  --mcp-enabled=\"${MCP_ENABLED:-false}\" \\\n\
+  --enable-client-id-metadata-document=\"${ENABLE_CLIENT_ID_METADATA_DOCUMENT:-false}\" \\\n\
+  --client-id-metadata-allowed-domains=\"${CLIENT_ID_METADATA_ALLOWED_DOMAINS}\" \\\n\
+  --enable-dynamic-client-registration=\"${ENABLE_DYNAMIC_CLIENT_REGISTRATION:-false}\" \\\n\
   --rate-limit-rps=\"${RATE_LIMIT_RPS:-30}\" \\\n\
   --rate-limit-burst=\"${RATE_LIMIT_BURST:-20}\" \\\n\
   --rate-limit-fail-closed=\"${RATE_LIMIT_FAIL_CLOSED:-false}\" \\\n\
