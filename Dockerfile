@@ -6,7 +6,7 @@
 # -email-otp/-sms-otp/-mfa). Re-pin to the stable 2.4.0 tag once it ships.
 # Every flag the server exposes is wired below; `--help` on this tag is the
 # source of truth, and a flag missing here is drift, not a deliberate omission.
-FROM quay.io/authorizer/authorizer:2.4.0-rc.23
+FROM quay.io/authorizer/authorizer:2.4.0
 # Override so CMD runs in a shell and env vars (e.g. for Railway) are expanded. See base image comment.
 # Use exec-form CMD with a single string so /bin/sh -c gets one argument; shell-form CMD can be split and drop into a shell.
 ENTRYPOINT ["/bin/sh", "-c"]
