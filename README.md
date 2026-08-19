@@ -1,6 +1,6 @@
-# Authorizer Server on Railway App
+# Authorizer Public Demo
 
-Deploy production ready [authorizer.dev](https://authorizer.dev) instance using [railway.app](https://railway.app) with [PostgreSQL](https://github.com/authorizerdev/authorizer-railway) / [MySQL](https://github.com/authorizerdev/authorizer-railway/tree/with-mysql-redis) and Redis for free and build with it in 30seconds
+Deployment source for the hosted [authorizer.dev](https://authorizer.dev) public demo instance. It is the Railway deployment with demo defaults, so it doubles as a Railway one-click template — deploy your own instance using [railway.app](https://railway.app) with [PostgreSQL](https://github.com/authorizerdev/authorizer-railway) / [MySQL](https://github.com/authorizerdev/authorizer-railway/tree/with-mysql-redis) and Redis for free and build with it in 30seconds
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/nwXp1C?referralCode=FEF4uT)
 
@@ -13,7 +13,7 @@ Deploy production ready [authorizer.dev](https://authorizer.dev) instance using 
 ## 💁‍♀️ How to use
 
 - Click the Railway button 👆
-- Configure the required environment variables. Checkout docs on [environment variables](https://docs.authorizer.dev/core/env/) to get more information.
+- Configure the required environment variables. Checkout the [server configuration docs](https://docs.authorizer.dev/core/server-config) to get more information.
 - Deploy
 
 ## 📝 Notes
